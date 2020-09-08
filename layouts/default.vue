@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app :dark="switchTheme">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -50,6 +50,7 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-switch v-model="switchTheme" :label="`Make ${switchTheme.toString()}`"></v-switch>
       <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
@@ -92,6 +93,7 @@
 export default {
   data () {
     return {
+      switchTheme: false,
       clipped: false,
       drawer: false,
       fixed: false,
@@ -112,6 +114,6 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js'
     }
-  }
+  },
 }
 </script>
